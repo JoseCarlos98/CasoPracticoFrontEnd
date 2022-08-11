@@ -1,0 +1,27 @@
+<div class="c-tabla">
+  <table class="tabla-listado " cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th >Nombre</th>
+        <th >Imagen</th>
+        <th >Ataque</th>
+        <th >Defensa</th>
+        <th >Acciones</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr [ngClass]="{'table-active': pokemonSeleccionado?.id == pokemon.id }" *ngFor="let pokemon of pokemones" class="animate__animated animate__fadeIn table">
+          <td>{{pokemon.name}}</td>
+          <td class="f-c"><img [src]="pokemon.image"></td>
+          <td>{{pokemon.attack}}</td>
+          <td>{{pokemon.defense}}</td>
+          <td class="acciones">
+            <div>
+              <i class="bi bi-pencil-square mr-3" (click)="modificarPokemon(pokemon)"></i>
+              <i class="bi bi-trash" (click)="borrarPokemon(pokemon)"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

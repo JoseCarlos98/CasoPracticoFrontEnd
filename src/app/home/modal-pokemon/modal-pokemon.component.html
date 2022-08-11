@@ -1,0 +1,67 @@
+<div class="card animate__animated animate__fadeIn table">
+    <h4>{{editarPokemon ? 'Editar Pokemon' : 'Nuevo Pokemon'}}</h4>
+    <form id="form" [formGroup]="form">
+        <div class="card-body">
+
+            <div class="c-info ">
+                <div class="c-inputs">
+                    <label for="nombre" class="w-input">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Nombre" formControlName="name">
+                </div>
+
+                <div class="c-inputs">
+                    <label for="imagen" class="w-input">Imagen:</label>
+                    <input type="text" id="imagen" placeholder="Imagen" formControlName="image">
+                </div>
+             
+                <div class="c-inputs">
+                    <label class="w-input">Tipo:</label>
+                    <input type="text" placeholder="Tipo" formControlName="type">
+                </div>
+            </div>
+
+            <div class="c-info ranges">
+                <div>
+                    <label id="red" for="ataque" class="w-input">HP:</label>
+                    <div class="c-ranger">
+                        <span>0</span>
+                        <span class="bar"><span class="fill"></span></span>
+                        <input type="range" class="range" id="hp" min="0" max="100" formControlName="hp" >
+                        <span>{{form.get('hp')?.value || '100'}}</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label id="red" for="ataque" class="w-input">Ataque:</label>
+                    <div class="c-ranger">
+                        <span>0</span>
+                        <span class="bar"><span class="fill"></span></span>
+                        <input type="range" class="range" id="ataque" min="0" max="100" formControlName="attack" >
+                        <span>{{form.get('attack')?.value || '100'}}</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="defensa" class="w-input">Defensa:</label>
+                    <div class="c-ranger">
+                        <span>0</span>
+                        <span class="bar"><span class="fill"></span></span>
+                        <input type="range" class="range" id="defensa" min="0" max="100" formControlName="defense" >
+                        <span>{{form.get('defense')?.value || '100'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btns">
+            <button type="button" class="btn btn-color-base btn-formato" (click)="resetear()">
+                <i class="bi bi-x-lg"></i>
+                Cancelar
+            </button>
+            <button type="submit" form="form" class="btn btn-color-base btn-formato" (click)="registarOEditarPokemon()">
+                <i class="bi bi-save"></i>
+                {{editarPokemon ? 'Editar ' : 'Guardar'}}
+            </button>
+        </div>
+    </form>
+</div>

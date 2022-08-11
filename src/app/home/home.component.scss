@@ -1,0 +1,34 @@
+.buscar-agregar{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.buscar-agregar > div input{
+    width: 250px;
+    padding-left: 35px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.buscar-agregar > div i{
+    font-size: 17px;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+}
+
+.header-tabla {
+    margin-top: 30px;
+}
+
+.header-tabla h1{
+    font-size: 23px;
+    font-weight: 500;
+}

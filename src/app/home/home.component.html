@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="contenedor p-0">
+    <div class="header-tabla">
+        <h1>Listado de pokemon</h1>
+        <div>
+            <div class="buscar-agregar">
+                <div>
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="form-control" [formControl]="buscador" placeholder="Buscar">
+                </div>
+                <button type="button" class="btn-formato btn-color-base" (click)="nuevoOEditar = true;">
+                    <i class="bi bi-plus-lg"></i>
+                    Nuevo
+                </button>
+            </div>
+
+            <div class="listado">
+                <app-listado [pokemones]="busquedaPokemon.length ? busquedaPokemon : pokemones"
+                    (editarPokemon)="editarPokemon = $event" [pokemonSeleccionado]="editarPokemon"></app-listado>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-pokemon w-100 mt-4" *ngIf="nuevoOEditar || editarPokemon">
+        <app-modal-pokemon [editarPokemon]="editarPokemon" (cancel)="editarPokemon = $event; nuevoOEditar = $event"></app-modal-pokemon>
+    </div>
+</div>
